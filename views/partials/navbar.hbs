@@ -1,0 +1,26 @@
+<nav>
+    <div class="nav-wrapper deep-purple accent-1">
+      <a href="#" class="brand-logo">Space</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        {{#if isHome}}
+          <li class="active"><a href="/">home</a></li>
+        {{else}}
+          <li><a href="/">home</a></li>
+        {{/if}}
+
+        {{#if isSpace}}
+          <li class="active"><a href="/space">constellations</a></li>
+        {{else}}
+          <li><a href="/space">constellations</a></li>
+        {{/if}}
+
+        {{#if isAdd}}
+          <li class="active"><a href="/add">add stars</a></li>
+        {{else}}
+          <li><a href="/add">add stars</a></li>
+        {{/if}}
+
+      </ul>
+    </div>
+  </nav>

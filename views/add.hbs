@@ -1,0 +1,23 @@
+<h1>Add new stars</h1>
+
+<form action="/add" method="POST">
+    <div class="input-field">
+        <input id="title" name="title" type="text" class="validate" required>
+        <label for="title">Stars Name</label>
+        <span class="helper-text" data-error="Enter name">Helper text</span>
+    </div>
+
+    <div class="input-field">
+        <input id="description" name="description" type="text" class="validate" required>
+        <label for="description">Description</label>
+        <span class="helper-text" data-error="Enter a description and price">Helper text</span>
+    </div>
+
+    <div class="input-field">
+        <input id="img" name="image" type="text" class="validate" required>
+        <label for="img">Image URL</label>
+        <span class="helper-text" data-error="Enter a url">Helper text</span>
+    </div>
+
+    <button class="btn deep-purple accent-4">Add stars</button>
+</form>

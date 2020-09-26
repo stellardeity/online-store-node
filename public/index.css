@@ -1,0 +1,23 @@
+.nav-wrapper {
+    padding: 0 2rem;
+}
+
+.card {
+    margin: 10px;
+
+    width: 30%;
+}
+
+.space {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.page-footer {
+    margin-top: 20px;
+}
+
+.footer-copyright {
+    text-align: center; 
+}
