@@ -1,13 +1,13 @@
 const { v4 } = require('uuid')
 const fs = require('fs')
 const path = require('path')
-const { resolve } = require('path')
 
-class Space {
-    constructor(title, description, img) {
+class Service {
+    constructor(title, description, img, price) {
         this.title = title,
         this.description = description,
         this.img = img,
+        this.price = price,
         this.id = v4()
     }
 
@@ -16,18 +16,19 @@ class Space {
             title: this.title,
             description: this.description,
             img: this.img,
+            price: this.price,
             id: this.id
         }
     }
 
     async save() {
-        const space = await Space.getAll()
-        space.push(this.toJSON())
+        const services = await Service.getAll()
+        services.push(this.toJSON())
 
         return new Promise((resolve, reject) => {
             fs.writeFile(
-                path.join(__dirname, '..', 'data', 'space.json'),
-                JSON.stringify(space),
+                path.join(__dirname, '..', 'data', 'services.json'),
+                JSON.stringify(services),
                 (err) => {
                     if (err) {
                         reject(err)
@@ -41,7 +42,7 @@ class Space {
 
     static getAll() {
         return new Promise((resolve, reject) => {
-            fs.readFile(path.join(__dirname, '..', 'data', 'space.json'),
+            fs.readFile(path.join(__dirname, '..', 'data', 'services.json'),
                 'utf-8',
                 (err, content) => {
                     if (err) {
@@ -54,4 +55,4 @@ class Space {
     }
 }
 
-module.exports = Space
+module.exports = Service

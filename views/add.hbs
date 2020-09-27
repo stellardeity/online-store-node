@@ -3,20 +3,24 @@
 <form action="/add" method="POST">
     <div class="input-field">
         <input id="title" name="title" type="text" class="validate" required>
-        <label for="title">Stars Name</label>
-        <span class="helper-text" data-error="Enter name">Helper text</span>
+        <label for="title">Service Name</label>
+        <span class="helper-text" data-error="Enter name"></span>
     </div>
 
     <div class="input-field">
-        <input id="description" name="description" type="text" class="validate" required>
-        <label for="description">Description</label>
-        <span class="helper-text" data-error="Enter a description and price">Helper text</span>
+        <input id="price" name="price" type="text" class="validate">
+        <label for="price">Price</label>
     </div>
 
     <div class="input-field">
         <input id="img" name="image" type="text" class="validate" required>
         <label for="img">Image URL</label>
-        <span class="helper-text" data-error="Enter a url">Helper text</span>
+        <span class="helper-text" data-error="Enter a Url"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <textarea name="description" id="icon_prefix2" class="materialize-textarea" required></textarea>
+        <label for="icon_prefix2">Description</label>
     </div>
 
     <button class="btn deep-purple accent-4">Add stars</button>

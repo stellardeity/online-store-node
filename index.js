@@ -4,7 +4,7 @@ const app = express()
 
 const homeRoutes = require('./routes/home')
 const addRoutes = require('./routes/add')
-const spaceRouter = require('./routes/space')
+const serviceRouter = require('./routes/service')
 
 const hbs = exphbs.create({
     defaultLayout: 'main',
@@ -19,7 +19,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use('/', homeRoutes)
 app.use('/add', addRoutes)
-app.use('/space', spaceRouter)
+app.use('/services', serviceRouter)
 
 const PORT = process.env.PORT || 3000
 

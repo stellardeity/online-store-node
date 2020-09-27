@@ -1,5 +1,5 @@
 const {Router} = require('express')
-const Space = require('../modules/space')
+const Service = require('../modules/services')
 const router = Router()
 
 router.get('/', (req, res) => {
@@ -10,11 +10,12 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const space = new Space(req.body.title, req.body.description, req.body.image)
+    const data = req.body
+    const space = new Service(data.title, data.description, data.image, data.price)
 
     await space.save()
 
-    res.redirect('/space')
+    res.redirect('/services')
 })
 
 module.exports = router

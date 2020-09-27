@@ -1,0 +1,31 @@
+<h1>Watch constellations</h1>
+
+{{#if service.length}}
+<div class="services">
+        {{#each service}}
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{img}}" alt='{{title}}'>
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{title}}
+                    <i class="material-icons right">more_vert</i>
+                </span>
+
+                {{#if price}}
+                <span class="price">{{price}}</span>
+                {{/if}}
+
+                <p><a href="/space/{{id}}">Узнать больше</a></p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">{{title}}<i
+                        class="material-icons right">close</i></span>
+                <p>{{description}}</p>
+            </div>
+        </div>
+        {{/each}}
+</div>
+{{else}}
+<p>Курсов пока нет</p>
+{{/if}}
