@@ -1,0 +1,29 @@
+<h1>Редактировать услугу {{service.title}}</h1>
+
+<form action="/services/edit" method="POST">
+    <div class="input-field">
+        <input id="title" name="title" type="text" class="validate" value="{{service.title}}" required>
+        <label for="title">Service Name</label>
+        <span class="helper-text" data-error="Enter name"></span>
+    </div>
+
+    <div class="input-field">
+        <input id="price" name="price" type="text" class="validate" value="{{service.price}}" >
+        <label for="price">Price</label>
+    </div>
+
+    <div class="input-field">
+        <input id="img" name="img" type="text" class="validate" value="{{service.img}}" required>
+        <label for="img">Image URL</label>
+        <span class="helper-text" data-error="Enter a Url"></span>
+    </div>
+
+    <div class="input-field col s6">
+        <textarea name="description" id="icon_prefix2" class="materialize-textarea" required>{{service.description}}</textarea>
+        <label for="icon_prefix2">Description</label>
+    </div>
+
+    <input type="hidden" name="id" value="{{service.id}}"/>
+
+    <button class="btn deep-purple accent-4">Редактировать</button>
+</form>

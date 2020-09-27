@@ -4,7 +4,7 @@ const app = express()
 
 const homeRoutes = require('./routes/home')
 const addRoutes = require('./routes/add')
-const serviceRouter = require('./routes/service')
+const serviceRouter = require('./routes/services')
 
 const hbs = exphbs.create({
     defaultLayout: 'main',

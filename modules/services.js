@@ -21,6 +21,27 @@ class Service {
         }
     }
 
+    static async update(service) {
+        const services = await Service.getAll()
+
+        const idx = services.findIndex(s => s.id === service.id)
+        services[idx] = service
+
+        return new Promise((resolve, reject) => {
+            fs.writeFile(
+                path.join(__dirname, '..', 'data', 'services.json'),
+                JSON.stringify(services),
+                (err) => {
+                    if (err) {
+                        reject(err)
+                    } else {
+                        resolve()
+                    }
+                }
+            )
+        })
+    }
+
     async save() {
         const services = await Service.getAll()
         services.push(this.toJSON())
