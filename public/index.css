@@ -1,7 +1,9 @@
+/* NavBar */
 .nav-wrapper {
     padding: 0 2rem;
 }
 
+/* Footer */
 .page-footer {
     margin-top: 20px;
 }
@@ -10,6 +12,7 @@
     text-align: center; 
 }
 
+/* All Services */
 .services {
     display: grid;
     grid-template-columns: 4fr 4fr 4fr;
@@ -18,4 +21,25 @@
 
 .price {
     font-size: 2rem;
+}
+
+/* Service By Id */
+.service {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service h1 {
+    margin-bottom: 2rem;
+}
+
+.service img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.service .price.big {
+    font-size: 2.5rem;
 }
