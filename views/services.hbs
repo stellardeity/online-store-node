@@ -1,4 +1,4 @@
-<h1>Watch constellations</h1>
+<h1>Watch services</h1>
 
 {{#if service.length}}
 <div class="services">
@@ -15,15 +15,20 @@
                 {{#if price}}
                 <span class="price">{{price}}</span>
                 {{/if}}
+                
+                <form action="/card/add" method="POST">
+                    <input type="hidden" name="id" value="{{id}}">
+                    <p class="buy"><button type="submit" class="waves-effect waves-light btn purple darken-4">Buy</button></p>
+                </form>
+                
+                <p><a href="/services/{{id}}/edit?allow=true">Edit a Service</a></p>
 
-                <p><a href="/services/{{id}}" target="_blank">Узнать больше</a></p>
-
-                <p><a href="/services/{{id}}/edit?allow=true">Редактировать услугу</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">{{title}}<i
                         class="material-icons right">close</i></span>
-                <p>{{description}}</p>
+                <p>{{brief_description}}</p>
+                <p><a href="/services/{{id}}" target="_blank">Learn More</a></p>
             </div>
         </div>
         {{/each}}

@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     const data = req.body
-    const space = new Service(data.title, data.description, data.image, data.price)
+    const space = new Service(data.title, data.description, data.image, data.price, data.brief_description)
 
     await space.save()
 

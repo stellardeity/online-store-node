@@ -4,7 +4,10 @@
             <div class="col l6 s12">
                 <h5 class="white-text">Footer Content</h5>
                 <p class="grey-text text-lighten-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas odio leo, consequat et mattis sit amet, aliquet sagittis lectus. Etiam quis molestie dolor. Ut eget posuere lectus, non facilisis dui. Cras fringilla est elit, maximus mollis mauris euismod id. In lorem nulla, accumsan non blandit tincidunt.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas odio leo, consequat et mattis sit
+                    amet, aliquet sagittis lectus. Etiam quis molestie dolor. Ut eget posuere lectus, non facilisis dui.
+                    Cras fringilla est elit, maximus mollis mauris euismod id. In lorem nulla, accumsan non blandit
+                    tincidunt.
                 </p>
             </div>
             <div class="col l4 offset-l2 s12">
@@ -31,6 +34,9 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var elems = document.querySelectorAll('.parallax');
-        var instances = M.Parallax.init(elems);
+        M.Parallax.init(elems);
+        
+        var textNeedCount = document.querySelectorAll('#textarea1');
+        M.CharacterCounter.init(textNeedCount);
     });
 </script>

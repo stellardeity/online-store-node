@@ -3,11 +3,12 @@ const fs = require('fs')
 const path = require('path')
 
 class Service {
-    constructor(title, description, img, price) {
+    constructor(title, description, img, price, brief_description) {
         this.title = title,
         this.description = description,
         this.img = img,
         this.price = price,
+        this.brief_description = brief_description,
         this.id = v4()
     }
 
@@ -17,6 +18,7 @@ class Service {
             description: this.description,
             img: this.img,
             price: this.price,
+            brief_description: this.brief_description,
             id: this.id
         }
     }

@@ -1,10 +1,15 @@
-<h1>Add new stars</h1>
+<h1>Add new service</h1>
 
 <form action="/add" method="POST">
     <div class="input-field">
         <input id="title" name="title" type="text" class="validate" required>
         <label for="title">Service Name</label>
         <span class="helper-text" data-error="Enter name"></span>
+    </div>
+
+    <div class="input-field">
+        <textarea name="brief_description" id="textarea1" class="materialize-textarea" data-length="100" type="text" maxlength="100" required></textarea>
+        <label for="icon_prefix2">Brief Description</label>
     </div>
 
     <div class="input-field">
@@ -18,10 +23,10 @@
         <span class="helper-text" data-error="Enter a Url"></span>
     </div>
 
-    <div class="input-field col s6">
+    <div class="input-field">
         <textarea name="description" id="icon_prefix2" class="materialize-textarea" required></textarea>
         <label for="icon_prefix2">Description</label>
     </div>
 
-    <button class="btn deep-purple accent-4">Add stars</button>
+    <button class="btn deep-purple accent-4">Add Service</button>
 </form>

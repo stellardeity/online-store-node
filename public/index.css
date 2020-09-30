@@ -43,3 +43,7 @@
 .service .price.big {
     font-size: 2.5rem;
 }
+
+.buy {
+    padding: 10px 0;
+}
