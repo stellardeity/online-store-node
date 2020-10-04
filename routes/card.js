@@ -6,7 +6,7 @@ const router = Router()
 router.post('/add', async (req, res) => {
     const service = await Service.getById(req.body.id)
     await Card.add(service)
-    res.redirect('/services')
+    res.redirect('/card')
 })
 
 router.get('/', async (req, res) => {
