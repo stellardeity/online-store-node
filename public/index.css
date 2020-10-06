@@ -1,3 +1,13 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 /* NavBar */
 .nav-wrapper {
     padding: 0 2rem;
@@ -9,7 +19,7 @@
 }
 
 .footer-copyright {
-    text-align: center; 
+    text-align: center;
 }
 
 /* All Services */

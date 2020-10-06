@@ -35,6 +35,33 @@ class Card {
         })
     }
 
+    static async remove(id) {
+        const card = await Card.fetch()
+
+        const idx = card.services.findIndex(s => s.id === id)
+        const service = card.services[idx]
+
+        if(service.count && service.count === 1) {
+            // удалить
+            card.services = card.services.filter(s => s.id !== id)
+        } else {
+            // изменить кол-во
+            service.count--
+        }
+
+        card.price -= service.price 
+
+        return new Promise((resolve, reject) => {
+            fs.writeFile(p, JSON.stringify(card), err => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(card)
+                }
+            })
+        })
+    }
+
     static async fetch() {
         return new Promise((resolve, reject) => {
             fs.readFile(p, 'utf-8', (err, content) => {

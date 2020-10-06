@@ -1,31 +1,33 @@
-<h1>Корзина</h1>
-<div id="card">
-    {{#if services.length}}
-    <table>
-        <thead>
-            <tr>
-                <th>Название</th>
-                <th>Количество</th>
-                <th>Действие</th>
-            </tr>
-        </thead>
-        <tbody>
+    <h1>Корзина</h1>
 
-            {{#each services}}
-            <tr>
-                <td>{{title}}</td>
-                <td>{{count}}</td>
-                <td>
-                    <button class="btn btn-small js-remove" data-id="{{id}}">Удалить</button>
-                </td>
-            </tr>
-            {{/each}}
+    <div id="card">
+        {{#if services.length}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Количество</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
 
-        </tbody>
-    </table>
+            <tbody>
+                {{#each services}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{count}}</td>
+                    <td>
+                        <button class="btn btn-small js-remove" data-id="{{id}}">Удалить</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
 
-    <p><strong>Цена: </strong> <span class="price"> {{price}}</span></p>
-    {{else}}
-    <p>Корзина пуста</p>
-    {{/if}}
-</div>
+        </table>
+
+        <p><strong>Цена: </strong> <span class="price"> {{price}}</span></p>
+        {{else}}
+        <p>Корзина пуста</p>
+        {{/if}}
+
+    </div>
