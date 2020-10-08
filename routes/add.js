@@ -11,11 +11,18 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     const data = req.body
-    const space = new Service(data.title, data.description, data.image, data.price, data.brief_description)
+    const service = new Service({
+        title: data.title,
+        price: data.price,
+        img: data.img
+    })
 
-    await space.save()
-
-    res.redirect('/services')
+    try {
+        await service.save()
+        res.redirect('/services')
+    } catch (e) {
+        console.log(e)
+    }
 })
 
 module.exports = router
