@@ -13,8 +13,10 @@ router.post('/', async (req, res) => {
     const data = req.body
     const service = new Service({
         title: data.title,
+        brief_description: data.brief_description,
         price: data.price,
-        img: data.img
+        img: data.image,
+        description: data.description
     })
 
     try {

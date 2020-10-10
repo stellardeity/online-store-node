@@ -17,18 +17,18 @@
                 {{/if}}
                 
                 <form action="/card/add" method="POST">
-                    <input type="hidden" name="id" value="{{id}}">
+                    <input type="hidden" name="id" value="{{_id}}">
                     <p class="buy"><button type="submit" class="waves-effect waves-light btn purple darken-4">Buy</button></p>
                 </form>
-                
-                <p><a href="/services/{{id}}/edit?allow=true">Edit a Service</a></p>
+
+                <p><a href="/services/{{_id}}/edit?allow=true">Edit a Service</a></p>
 
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">{{title}}<i
                         class="material-icons right">close</i></span>
                 <p>{{brief_description}}</p>
-                <p><a href="/services/{{id}}" target="_blank">Learn More</a></p>
+                <p><a href="/services/{{_id}}" target="_blank">Learn More</a></p>
             </div>
         </div>
         {{/each}}

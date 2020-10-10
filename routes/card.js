@@ -4,7 +4,7 @@ const Service = require('./../modules/services')
 const router = Router()
 
 router.post('/add', async (req, res) => {
-    const service = await Service.getById(req.body.id)
+    const service = await Service.findById(req.body.id).lean()
     await Card.add(service)
     res.redirect('/services')
 })

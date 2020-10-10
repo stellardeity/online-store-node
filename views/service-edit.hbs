@@ -28,7 +28,12 @@
         <label for="icon_prefix2">Description</label>
     </div>
 
-    <input type="hidden" name="id" value="{{service.id}}"/>
+    <input type="hidden" name="id" value="{{service._id}}"/>
 
-    <button class="btn deep-purple accent-4">Редактировать</button>
+    <button type="submit" class="btn deep-purple accent-4">Редактировать</button>
+</form>
+
+<form action="/services/remove" method="POST">
+    <input type="hidden" name="id" value="{{service._id}}">
+    <button class="btn red">Удалить курс</button>
 </form>
