@@ -20,7 +20,8 @@ const userSchema = new Schema({
         serviceId: {
             type: Schema.Types.ObjectId,
             ref: 'Service',
-            required: true
         }
     }
 })
+
+module.exports = model('User', userSchema)

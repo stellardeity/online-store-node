@@ -1,26 +1,26 @@
 const {Router} = require('express')
-const Service = require('../modules/services')
+const Product = require('../modules/services')
 const router = Router()
 
 router.get('/', (req, res) => {
     res.render('add', {
-        title: "Add new stars",
+        title: "Adding",
         isAdd: true
     })
 })
 
 router.post('/', async (req, res) => {
     const data = req.body
-    const service = new Service({
+    const product = new Product({
         title: data.title,
-        brief_description: data.brief_description,
         price: data.price,
-        img: data.image,
-        description: data.description
+        img: data.img,
+        text: data.text,
+        userId: req.user
     })
 
     try {
-        await service.save()
+        await product.save()
         res.redirect('/services')
     } catch (e) {
         console.log(e)

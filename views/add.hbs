@@ -1,37 +1,33 @@
-<h1>Add new service</h1>
+<h3 class="add-title"><b>Add new product</b></h3>
 
 <form action="/add" method="POST">
     {{!-- title --}}
     <div class="input-field">
         <input id="title" name="title" type="text" class="validate" required>
         <label for="title">Service Name</label>
-        <span class="helper-text" data-error="Enter name"></span>
-    </div>
-
-    {{!-- brief_description --}}
-    <div class="input-field">
-        <textarea name="brief_description" id="textarea1" class="materialize-textarea" data-length="100" type="text" maxlength="100" required></textarea>
-        <label for="icon_prefix2">Brief Description</label>
+        <span class="helper-text" data-error="What will the product be called?"></span>
     </div>
 
     {{!-- price --}}
     <div class="input-field">
-        <input id="price" name="price" type="text" class="validate">
+        <input id="price" name="price" type="text" class="validate" required>
         <label for="price">Price</label>
+        <span class="helper-text" data-error="Specify the price"></span>
     </div>
 
     {{!-- image --}}
     <div class="input-field">
-        <input id="img" name="image" type="text" class="validate" required>
+        <input id="img" name="img" type="text" class="validate" required>
         <label for="img">Image URL</label>
-        <span class="helper-text" data-error="Enter a Url"></span>
+        <span class="helper-text" data-error="Please enter the address of the image that will be displayed in the product description"></span>
     </div>
 
-    {{!-- description --}}
+    {{!-- text --}}
     <div class="input-field">
-        <textarea name="description" id="icon_prefix2" class="materialize-textarea" required></textarea>
-        <label for="icon_prefix2">Description</label>
+        <textarea name="text" id="text" class="materialize-textarea" required></textarea>
+        <label for="text">Description</label>
+        <span class="helper-text" data-error="Please enter the text that will be displayed in the product description"></span>
     </div>
 
-    <button class="btn deep-purple accent-4">Add Service</button>
+    <button class="btn indigo darken-4 btn-large">Add Service</button>
 </form>

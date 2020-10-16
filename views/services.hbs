@@ -1,38 +1,54 @@
-<h1>Watch services</h1>
+<h3><b>Views Products.</b></h3>
 
 {{#if service.length}}
-<div class="services">
-        {{#each service}}
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="{{img}}" alt='{{title}}'>
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{title}}
-                    <i class="material-icons right">more_vert</i>
-                </span>
+<div class="products">
+    {{#each service}}
+    <div class="card">
+        {{!-- product image --}}
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{{img}}" alt='{{title}}'>
+        </div>
 
-                {{#if price}}
-                <span class="price">{{price}}</span>
-                {{/if}}
-                
+        {{!-- product content --}}
+        <div class="card-content">
+
+            {{!-- product title --}}
+            <span class="card-title activator grey-text text-darken-4">{{title}}
+                {{!-- learn more --}}
+                <i class="material-icons right">more_vert</i>
+            </span>
+
+            {{!-- product price --}}
+            {{#if price}}
+            <span class="price">{{price}}</span>
+            {{/if}}
+
+            <div class="products-card__buttons">
                 <form action="/card/add" method="POST">
                     <input type="hidden" name="id" value="{{_id}}">
-                    <p class="buy"><button type="submit" class="waves-effect waves-light btn purple darken-4">Buy</button></p>
+                    <p><button type="submit" class="waves-effect waves-light btn indigo darken-4">Buy
+                        </button></p>
                 </form>
 
-                <p><a href="/services/{{_id}}/edit?allow=true">Edit a Service</a></p>
+                <p><button href="/services/{{_id}}" target="_blank"
+                        class="waves-effect waves-light btn indigo darken-4 buy__button">Learn More
+                    </button></p>
+            </div>
 
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">{{title}}<i
-                        class="material-icons right">close</i></span>
-                <p>{{brief_description}}</p>
-                <p><a href="/services/{{_id}}" target="_blank">Learn More</a></p>
-            </div>
         </div>
-        {{/each}}
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
+
+            <p><a class="waves-effect waves-light btn red" href="/services/{{_id}}/edit?allow=true">Edit a Product</a>
+            </p>
+            <form action="/services/remove" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button class="btn red">Delete an item</button>
+            </form>
+        </div>
+    </div>
+    {{/each}}
 </div>
 {{else}}
-<p>Курсов пока нет</p>
+<h3 class="no-product">No products yet</h3>
 {{/if}}

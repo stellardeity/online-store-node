@@ -1,11 +1,7 @@
 const {Schema, model} = require('mongoose')
 
-const service = new Schema({
+const product = new Schema({
     title: {
-        type: String,
-        required: true
-    },
-    brief_description: {
         type: String,
         required: true
     },
@@ -14,10 +10,14 @@ const service = new Schema({
         required: true
     },
     img: String,
-    description: {
+    text: {
         type: String,
         required: true
     },
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 })
 
-module.exports = model('Service', service)
+module.exports = model('Product', product)

@@ -1,15 +1,10 @@
-<h1>Редактировать услугу {{service.title}}</h1>
+<h3><b>Edit the product </b> {{service.title}}</h3>
 
 <form action="/services/edit" method="POST">
     <div class="input-field">
         <input id="title" name="title" type="text" class="validate" value="{{service.title}}" required>
         <label for="title">Service Name</label>
         <span class="helper-text" data-error="Enter name"></span>
-    </div>
-
-    <div class="input-field">
-        <textarea name="brief_description" id="icon_prefix2" class="materialize-textarea" required>{{service.brief_description}}</textarea>
-        <label for="icon_prefix2">Brief Description</label>
     </div>
 
     <div class="input-field">
@@ -24,16 +19,12 @@
     </div>
 
     <div class="input-field col s6">
-        <textarea name="description" id="icon_prefix2" class="materialize-textarea" required>{{service.description}}</textarea>
+        <textarea name="description" id="icon_prefix2" class="materialize-textarea" required>{{service.text}}</textarea>
         <label for="icon_prefix2">Description</label>
     </div>
 
     <input type="hidden" name="id" value="{{service._id}}"/>
 
-    <button type="submit" class="btn deep-purple accent-4">Редактировать</button>
+    <button type="submit" class="btn deep-purple accent-4 btn-large">Edit a Product</button>
 </form>
 
-<form action="/services/remove" method="POST">
-    <input type="hidden" name="id" value="{{service._id}}">
-    <button class="btn red">Удалить курс</button>
-</form>
