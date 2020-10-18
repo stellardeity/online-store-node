@@ -1,8 +1,8 @@
 <h3><b>Views Products.</b></h3>
 
-{{#if service.length}}
+{{#if products.length}}
 <div class="products">
-    {{#each service}}
+    {{#each products}}
     <div class="card">
         {{!-- product image --}}
         <div class="card-image waves-effect waves-block waves-light">
@@ -30,18 +30,18 @@
                         </button></p>
                 </form>
 
-                <p><button href="/services/{{_id}}" target="_blank"
+                <p><a href="/products/{{_id}}" target="_blank"
                         class="waves-effect waves-light btn indigo darken-4 buy__button">Learn More
-                    </button></p>
+                    </a></p>
             </div>
 
         </div>
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
 
-            <p><a class="waves-effect waves-light btn red" href="/services/{{_id}}/edit?allow=true">Edit a Product</a>
+            <p><a class="waves-effect waves-light btn red" href="/products/{{_id}}/edit?allow=true">Edit a Product</a>
             </p>
-            <form action="/services/remove" method="POST">
+            <form action="/products/remove" method="POST">
                 <input type="hidden" name="id" value="{{_id}}">
                 <button class="btn red">Delete an item</button>
             </form>
@@ -50,5 +50,5 @@
     {{/each}}
 </div>
 {{else}}
-<h3 class="no-product">No products yet</h3>
+<h3>No products yet</h3>
 {{/if}}

@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 
     try {
         await product.save()
-        res.redirect('/services')
+        res.redirect('/products')
     } catch (e) {
         console.log(e)
     }

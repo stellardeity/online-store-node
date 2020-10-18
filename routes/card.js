@@ -6,7 +6,7 @@ const router = Router()
 router.post('/add', async (req, res) => {
     const service = await Service.findById(req.body.id).lean()
     await Card.add(service)
-    res.redirect('/services')
+    res.redirect('/products')
 })
 
 router.delete('/remove/:id', async (req, res) => {
