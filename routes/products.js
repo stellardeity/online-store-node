@@ -1,9 +1,10 @@
 const {Router} = require('express')
-const Products = require('../modules/services')
+const Products = require('../modules/product')
 const router = Router()
 
 router.get('/', async (req, res) => {
     const products = await Products.find().lean()
+
     res.render('products', {
         title: "Products",
         isProducts: true,

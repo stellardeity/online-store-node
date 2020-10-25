@@ -1,26 +1,51 @@
 const {Router} = require('express')
-const Card = require('./../modules/card')
-const Service = require('./../modules/services')
+const Product = require('./../modules/product')
 const router = Router()
 
+function mapCartItems(cart) {
+    return cart.items.map(p => ({
+        ...p.productId._doc, 
+        id: p.productId.id,
+        count: p.count
+    }))
+}
+
+function computePrice(products) {
+    return products.reduce((total, product) => {
+        return total += product.price * product.count
+    }, 0)
+}
+
 router.post('/add', async (req, res) => {
-    const service = await Service.findById(req.body.id).lean()
-    await Card.add(service)
+    const product = await Product.findById(req.body.id).lean()
+    await req.user.addToCard(product)
     res.redirect('/products')
 })
 
 router.delete('/remove/:id', async (req, res) => {
-    const card = await Card.remove(req.params.id)
-    res.status(200).json(card)
+    await req.user.removeFromCart(req.params.id)
+    const user = await req.user.populate('cart.items.productId').execPopulate()
+
+    const products = mapCartItems(user.cart)
+    const cart = {
+        products, price: computePrice(products)
+    }
+
+    res.status(200).json(cart)
 })
 
 router.get('/', async (req, res) => {
-    const card = await Card.fetch()
+    const user = await req.user
+    .populate('cart.items.productId')
+    .execPopulate()
+
+    const products = mapCartItems(user.cart)
+
     res.render('card', {
         title: 'Корзина',
         isCard: true,
-        services: card.services,
-        price: card.price
+        product: products,
+        price: computePrice(products)
     })
 })
 

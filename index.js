@@ -9,6 +9,7 @@ const homeRoutes = require('./routes/home')
 const cardRoutes = require('./routes/card')
 const addRoutes = require('./routes/add')
 const productRouter = require('./routes/products')
+const orderRouter = require('./routes/orders')
 
 const User = require('./modules/user')
 
@@ -16,7 +17,7 @@ const app = express()
 
 const hbs = exphbs.create({
     defaultLayout: 'main',
-    extname: 'hbs'
+    extname: 'hbs',
 })
 
 app.engine('hbs', hbs.engine)
@@ -25,7 +26,7 @@ app.set('views', 'views')
 
 app.use(async (req, res, next) => {
     try {
-        const user = await User.findById('5f836268472bdc3b2c0ab67d')
+        const user = await User.findById('5f94603f029cb224944f4bd0')
         req.user = user
         next()
     } catch (e) {
@@ -40,6 +41,7 @@ app.use('/', homeRoutes)
 app.use('/add', addRoutes)
 app.use('/products', productRouter)
 app.use('/card', cardRoutes)
+app.use('/orders', orderRouter)
 
 const PORT = process.env.PORT || 3000
 

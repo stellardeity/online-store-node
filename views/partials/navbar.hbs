@@ -24,7 +24,13 @@
         {{#if isCard}}
           <li class="active"><a href="/card">Trash</a></li>
         {{else}}
-          <li><a href="/card">Backet</a></li>
+          <li><a href="/card">Trash</a></li>
+        {{/if}}
+
+        {{#if isOrder}}
+          <li class="active"><a href="/orders">Orders</a></li>
+        {{else}}
+          <li><a href="/orders">Orders</a></li>
         {{/if}}
 
 

@@ -5,6 +5,21 @@ const toCurrency = price => {
     }).format(price)
 }
 
+const toDate = date => {
+    return new Intl.DateTimeFormat('ru-RU', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    }).format(new Date(date))
+}
+
+document.querySelectorAll('.date').forEach(node => {
+    node.textContent = toDate(node.textContent)
+})
+
 document.querySelectorAll('.price').forEach(node => {
     node.textContent = toCurrency(node.textContent)
 })
@@ -20,14 +35,14 @@ if ($card) {
             fetch(`/card/remove/${id}`, {
                 method: 'delete'
             }).then(res => res.json()).then(card => {
-                if(card.services.length) {
+                if(card.products.length) {
                     // rerender services
-                    const html = card.services.map(service => {
+                    const html = card.products.map(product => {
                         return `<tr>
-                                    <td>${service.title}<td>
-                                    <td>${service.count}</td>
+                                    <td>${product.title}<td>
+                                    <td>${product.count}</td>
                                     <td>
-                                        <button class="btn btn-small js-remove" data-id="${service.id}">Удалить</button>
+                                        <button class="btn btn-small js-remove" data-id="${product.id}">Удалить</button>
                                     </td>
                                 </tr>`
                     }).join('')
