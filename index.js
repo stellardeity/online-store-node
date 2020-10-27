@@ -1,4 +1,4 @@
-const express = require('express') 
+const express = require('express')
 const mongoose = require('mongoose')
 
 const path = require('path')
@@ -18,6 +18,10 @@ const app = express()
 const hbs = exphbs.create({
     defaultLayout: 'main',
     extname: 'hbs',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true,
+    },
 })
 
 app.engine('hbs', hbs.engine)
@@ -49,17 +53,17 @@ async function start() {
     try {
         const password = 'HaSse9bqnGRdtxJY'
         const url = `mongodb+srv://maria:${password}@cluster0.lhqg9.mongodb.net/shop`
-        await mongoose.connect(url,  {
-            useNewUrlParser: true, 
-            useUnifiedTopology: true, 
+        await mongoose.connect(url, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
             useFindAndModify: false
         })
         const candidate = await User.findOne()
-        if(!candidate) {
+        if (!candidate) {
             const user = new User({
                 email: 'maria@gmail.com',
                 name: 'maria',
-                card: {items: []}
+                card: { items: [] }
             })
             await user.save()
         }
