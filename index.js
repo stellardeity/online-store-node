@@ -11,6 +11,8 @@ const addRoutes = require('./routes/add')
 const productRouter = require('./routes/products')
 const orderRouter = require('./routes/orders')
 
+const authRouter = require("./routes/auth")
+
 const User = require('./modules/user')
 
 const app = express()
@@ -30,7 +32,7 @@ app.set('views', 'views')
 
 app.use(async (req, res, next) => {
     try {
-        const user = await User.findById('5f94603f029cb224944f4bd0')
+        const user = await User.findById('5fb57843c45b0b36c43a734e')
         req.user = user
         next()
     } catch (e) {
@@ -46,6 +48,7 @@ app.use('/add', addRoutes)
 app.use('/products', productRouter)
 app.use('/card', cardRoutes)
 app.use('/orders', orderRouter)
+app.use('/auth', authRouter)
 
 const PORT = process.env.PORT || 3000
 

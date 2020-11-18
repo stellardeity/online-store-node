@@ -42,7 +42,8 @@ main {
 }
 
 .buy__button {
-    margin: 10px;;
+    margin: 10px;
+    ;
 }
 
 /* Add Product */
@@ -74,3 +75,7 @@ main {
     font-size: 2.5rem;
 }
 
+/* Auth */
+.auth {
+    padding-top: 1rem;
+}
