@@ -1,9 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const session = require('express-session')
 
 const path = require('path')
 
 const exphbs = require('express-handlebars')
+const varMiddleware = require('./middleware/variables')
 
 const homeRoutes = require('./routes/home')
 const cardRoutes = require('./routes/card')
@@ -42,6 +44,12 @@ app.use(async (req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
+app.use(session({
+    secret: 'some secret value',
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(varMiddleware)
 
 app.use('/', homeRoutes)
 app.use('/add', addRoutes)
