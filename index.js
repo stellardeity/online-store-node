@@ -13,20 +13,10 @@ const cardRoutes = require('./routes/card')
 const addRoutes = require('./routes/add')
 const productRouter = require('./routes/products')
 const orderRouter = require('./routes/orders')
-
 const authRouter = require("./routes/auth")
 
-const User = require('./modules/user')
 
 const app = express()
-
-const MONGODB_URL = `mongodb+srv://maria:${password}@cluster0.lhqg9.mongodb.net/shop`
-
-const store = new MongoStore({
-    collection: 'sessions',
-    url: MONGODB_URL,
-})
-
 const hbs = exphbs.create({
     defaultLayout: 'main',
     extname: 'hbs',
@@ -34,6 +24,13 @@ const hbs = exphbs.create({
         allowProtoPropertiesByDefault: true,
         allowProtoMethodsByDefault: true,
     },
+})
+const password = 'HaSse9bqnGRdtxJY'
+const MONGODB_URL = `mongodb+srv://maria:${password}@cluster0.lhqg9.mongodb.net/shop`
+
+const store = new MongoStore({
+    collection: 'sessions',
+    uri: MONGODB_URL,
 })
 
 app.engine('hbs', hbs.engine)
@@ -61,14 +58,11 @@ const PORT = process.env.PORT || 3000
 
 async function start() {
     try {
-        const password = 'HaSse9bqnGRdtxJY'
-        
         await mongoose.connect(MONGODB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false
         })
-    ]
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`)
         })
