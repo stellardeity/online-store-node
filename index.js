@@ -14,6 +14,7 @@ const addRoutes = require('./routes/add')
 const productRouter = require('./routes/products')
 const orderRouter = require('./routes/orders')
 const authRouter = require("./routes/auth")
+const userMiddleware = require("./middleware/user")
 
 
 const app = express()
@@ -46,6 +47,7 @@ app.use(session({
     store
 }))
 app.use(varMiddleware)
+app.use(userMiddleware)
 
 app.use('/', homeRoutes)
 app.use('/add', addRoutes)
