@@ -26,6 +26,7 @@
             <div class="products-card__buttons">
                 <form action="/card/add" method="POST">
                     <input type="hidden" name="id" value="{{_id}}">
+                    <input type="hidden" name="_csrf" value="{{@root.csrf}}">
                     <p><button type="submit" class="waves-effect waves-light btn indigo darken-4">Buy
                         </button></p>
                 </form>
@@ -43,6 +44,7 @@
             </p>
             <form action="/products/remove" method="POST">
                 <input type="hidden" name="id" value="{{_id}}">
+                <input type="hidden" name="_csrf" value="{{@root.csrf}}">
                 <button class="btn red">Delete an item</button>
             </form>
             {{else}}
@@ -50,6 +52,8 @@
             </p>
             <form action="/products/remove" method="POST">
                 <input type="hidden" name="id" value="{{_id}}">
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+
                 <button class="btn red" disabled>Delete an item</button>
             </form>
             {{/if}}
