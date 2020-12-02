@@ -8,6 +8,15 @@ main {
     flex: 1 0 auto;
 }
 
+.alert {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: rgba(255, 0, 0, .3);
+    color: red;
+}
+
 /* NavBar */
 /* ================================= */
 .nav-wrapper {
@@ -79,3 +88,4 @@ main {
 .auth {
     padding-top: 1rem;
 }
+
